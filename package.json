@@ -1,19 +1,28 @@
 {
-    "name": "strapi-helper",
-    "version": "1.0.2",
-    "description": "An interactive helper for generating Strapi files",
-    "main": "dist/bin/index.js",
-    "bin": {
-        "strapi-helper": "dist/bin/index.js"
-    },
-    "scripts": {
-        "build": "tsc"
-    },
-    "author": "Ruglehjs ruglehjs@gmail.com",
-    "license": "MIT",
-    "dependencies": {},
-    "devDependencies": {
-        "typescript": "^4.x",
-        "@types/node": "^16.x"
-    }
+  "name": "strapi-helper",
+  "version": "1.0.0",
+  "description": "An interactive CLI tool for generating Strapi files.",
+  "main": "dist/bin/index.js",
+  "bin": {
+    "strapi-helper": "dist/bin/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Ruglehjs",
+  "license": "MIT",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ruglehjs/strapi-helper"
+  },
+  "homepage": "https://github.com/Ruglehjs/strapi-helper#readme",
+  "bugs": {
+    "url": "https://github.com/Ruglehjs/strapi-helper/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.x",
+    "@types/node": "^16.x"
+  }
 }
