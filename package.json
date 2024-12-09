@@ -1,0 +1,19 @@
+{
+    "name": "strapi-helper",
+    "version": "1.0.2",
+    "description": "An interactive helper for generating Strapi files",
+    "main": "dist/bin/index.js",
+    "bin": {
+        "strapi-helper": "dist/bin/index.js"
+    },
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "Ruglehjs ruglehjs@gmail.com",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "typescript": "^4.x",
+        "@types/node": "^16.x"
+    }
+}
