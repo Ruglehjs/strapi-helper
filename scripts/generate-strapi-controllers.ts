@@ -60,8 +60,14 @@ function generateSchemaJson(config: SectionConfig, projectName: string) {
         multiple: false,
         required: false,
         allowedTypes: ['images', 'files', 'videos'],
-      };
-    } else {
+      }
+    }
+    else if (field.type === 'text') {
+      attributes[field.name] = {
+        type: 'text',
+      }
+    }
+    else {
       attributes[field.name] = { type: field.type };
     }
   }

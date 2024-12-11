@@ -43,6 +43,11 @@ function generateSchemaJson(config, projectName) {
                 allowedTypes: ['images', 'files', 'videos'],
             };
         }
+        else if (field.type === 'text') {
+            attributes[field.name] = {
+                type: 'text',
+            };
+        }
         else {
             attributes[field.name] = { type: field.type };
         }
