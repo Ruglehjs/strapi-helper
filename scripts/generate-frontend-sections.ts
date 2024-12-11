@@ -61,25 +61,23 @@ export const generateFrontendSections = async (): Promise<void> => {
     componentOrder.push(componentName);
   }
 
-  function extractFields(obj: any, fields: { name: string; type: string }[]): void {
-    if (!obj || typeof obj !== 'object') return;
-
-    if (obj.hasOwnProperty('field_name') && obj.hasOwnProperty('field_type')) {
-      fields.push({ name: obj.field_name, type: obj.field_type });
-    }
-
-    for (const key of Object.keys(obj)) {
-      const val = obj[key];
-      if (Array.isArray(val)) {
-        for (const item of val) {
-          extractFields(item, fields);
+  function extractFields(jsonData: any, fields: { name: string; type: string; value: any }[]): void {
+    if (!jsonData || typeof jsonData !== 'object') return;
+  
+    // Check if the `fields` key exists and is an array
+    if (Array.isArray(jsonData.fields)) {
+      jsonData.fields.forEach((field: any) => {
+        if (field.field_name && field.field_type) {
+          fields.push({
+            name: field.field_name,
+            type: field.field_type,
+            value: field.value ?? null, // Add the value if present
+          });
         }
-      } else if (typeof val === 'object' && val !== null) {
-        extractFields(val, fields);
-      }
+      });
     }
   }
-
+  
   const allSections: Record<string, any> = {};
   for (const file of files) {
     const filePath = path.join(dataDir, file);
@@ -92,7 +90,7 @@ export const generateFrontendSections = async (): Promise<void> => {
     const serviceName = baseName;
     const model = baseName;
 
-    const fields: { name: string; type: string }[] = [];
+    const fields: { name: string; type: string; value: any }[] = [];
     extractFields(jsonData, fields);
 
     allSections[baseName] = {

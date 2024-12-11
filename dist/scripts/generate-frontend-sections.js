@@ -57,22 +57,20 @@ const generateFrontendSections = async () => {
         const componentName = match[1];
         componentOrder.push(componentName);
     }
-    function extractFields(obj, fields) {
-        if (!obj || typeof obj !== 'object')
+    function extractFields(jsonData, fields) {
+        if (!jsonData || typeof jsonData !== 'object')
             return;
-        if (obj.hasOwnProperty('field_name') && obj.hasOwnProperty('field_type')) {
-            fields.push({ name: obj.field_name, type: obj.field_type });
-        }
-        for (const key of Object.keys(obj)) {
-            const val = obj[key];
-            if (Array.isArray(val)) {
-                for (const item of val) {
-                    extractFields(item, fields);
+        // Check if the `fields` key exists and is an array
+        if (Array.isArray(jsonData.fields)) {
+            jsonData.fields.forEach((field) => {
+                if (field.field_name && field.field_type) {
+                    fields.push({
+                        name: field.field_name,
+                        type: field.field_type,
+                        value: field.value ?? null, // Add the value if present
+                    });
                 }
-            }
-            else if (typeof val === 'object' && val !== null) {
-                extractFields(val, fields);
-            }
+            });
         }
     }
     const allSections = {};
