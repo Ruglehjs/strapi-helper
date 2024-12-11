@@ -33,7 +33,7 @@ export const generateFrontendSections = async (): Promise<void> => {
     process.exit(1);
   }
 
-  const dataDir = path.join(appDir, 'src', 'data');
+  const dataDir = path.join(appDir, 'src', 'data-init');
   if (!fs.existsSync(dataDir)) {
     console.error(`Error: The directory "${dataDir}" does not exist.`);
     process.exit(1);

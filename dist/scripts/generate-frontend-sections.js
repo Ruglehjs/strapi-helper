@@ -34,7 +34,7 @@ const generateFrontendSections = async () => {
         console.error('Error: Invalid path provided or the directory does not exist.');
         process.exit(1);
     }
-    const dataDir = path_1.default.join(appDir, 'src', 'data');
+    const dataDir = path_1.default.join(appDir, 'src', 'data-init');
     if (!fs_1.default.existsSync(dataDir)) {
         console.error(`Error: The directory "${dataDir}" does not exist.`);
         process.exit(1);
