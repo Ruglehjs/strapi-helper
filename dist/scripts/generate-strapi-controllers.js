@@ -165,7 +165,7 @@ function generateAggregatorRoutes(sections) {
     const routes = Object.entries(sections).map(([name, config]) => {
         return `{
       method: "GET",
-      path: "/${projectName}/${config.endpoint}",
+      path: "/${projectName}${config.endpoint}",
       handler: "${aggregatorServiceName}.${config.controllerName}",
     },`;
     }).join('\n');
