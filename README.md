@@ -45,6 +45,46 @@ When you run `strapi-helper`, you’ll see the following options:
 
 ----------
 
+
+## JSON Examples
+
+### data-init/contacto.json
+
+This file should look like the following example:
+
+```json
+{
+  "matchdata": [
+    {
+      "titulo": "hello",
+      "subtitulo": "here it is",
+      "direccion": "strapi",
+    }
+  ],
+  "fields": [
+    {
+      "value": "hello",
+      "field_name": "titulo",
+      "field_type": "string"
+    },
+    {
+      "value": "here it is",
+      "field_name": "subtitulo",
+      "field_type": "string"
+    },
+    {
+      "value": "strapi",
+      "field_name": "direccion",
+      "field_type": "string"
+    }
+  ]
+}
+
+```
+
+`generate-frontend-sections.ts` is looking for the `fields` object
+`matchdata` is necesary for the match between data-init and data folders to be held in the build in this particular project
+
 ## Example Workflow
 
 1.  Run the helper and select option `1`:
