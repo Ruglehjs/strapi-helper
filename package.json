@@ -1,6 +1,6 @@
 {
   "name": "strapi-helper",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An interactive CLI tool for generating Strapi files.",
   "main": "dist/bin/index.js",
   "bin": {
